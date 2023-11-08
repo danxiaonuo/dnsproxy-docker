@@ -1,1 +1,35 @@
+---
+# DoH 和 DoT 的 Bootstrap DNS
+bootstrap:
+  - "tcp://127.0.0.1:53"
+  - "127.0.0.1:53"
+# 监听地址
+listen-addrs:
+  - "0.0.0.0"
+# UPD监听端开
+listen-ports:
+  - 5353
+# TLS监听端口
+tls-port:
+  - 853
+# 证书公钥 
+tls-crt: ''
+# 证书私钥
+tls-key: ''
+# 设置GO最大线程
+max-go-routines: 655350
+# 速率限制
+ratelimit: 0
+# IPv4 的速率限制子网长度
+ratelimit-subnet-len-ipv4: 24
+# IPv6 的速率限制子网长度
+ratelimit-subnet-len-ipv6: 64
+# 设置 UDP 缓冲区的大小
+udp-buf-size: 0
+# 上游DNS
+upstream:
+  - "tcp://127.0.0.1:53"
+  - "127.0.0.1:53"
+# 超时时间
+timeout: '30s'
 
