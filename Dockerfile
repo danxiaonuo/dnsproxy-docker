@@ -40,7 +40,7 @@ RUN set -eux && \
 
 # 运行下载
 RUN set -eux \
-    && export DNSPROXY_DOWN=$(curl -s https://api.github.com/repos/AdguardTeam/dnsproxy/releases/latest | jq -r .assets[].browser_download_url | grep -i 'linux-amd64'curl -s https://api.github.com/repos/AdguardTeam/dnsproxy/releases/latest | jq -r .assets[].browser_download_url | grep -i 'linux-amd64') \
+    && export DNSPROXY_DOWN=$(curl -s https://api.github.com/repos/AdguardTeam/dnsproxy/releases/latest | jq -r .assets[].browser_download_url | grep -i 'linux-amd64') \
     && wget --no-check-certificate -O /tmp/dnsproxy-linux-amd64.tar.gz $DNSPROXY_DOWN \
     && cd /tmp && tar zxvf dnsproxy-linux-amd64.tar.gz
 
