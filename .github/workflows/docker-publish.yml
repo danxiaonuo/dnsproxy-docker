@@ -1,5 +1,5 @@
 #=================================================
-# https://github.com/danxiaonuo/mosdns-docker
+# https://github.com/danxiaonuo/dnsproxy-docker
 # Lisence: MIT
 # Author: danxiaonuo
 # Blog: https://www.danxiaonuo.com
@@ -67,9 +67,9 @@ jobs:
       with:
         context: .
         file: ./Dockerfile
-        platforms: linux/amd64,linux/arm/v7,linux/arm64,linux/ppc64le
+        platforms: linux/amd64
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/mosdns:${{ matrix.DOCKER_TAG }}
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/dnsproxy:${{ matrix.DOCKER_TAG }}
       
     - name: 上传至阿里云
       id: buildAndPushImage
@@ -77,7 +77,7 @@ jobs:
       with:
         registry_url: 'registry.cn-hongkong.aliyuncs.com'
         namespaces: 'danxiaonuo'
-        repository_name: 'mosdns'
+        repository_name: 'dnsproxy'
         user_name: ${{ secrets.ALIYUN_USERNAME }}
         password: ${{ secrets.ALIYUN_PASSWORD }}
         image_version: ${{ matrix.DOCKER_TAG }}
